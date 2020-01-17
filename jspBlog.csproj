@@ -336,6 +336,7 @@
     <Content Include="Template\assets\css\material-kit.min.css" />
     <Content Include="Template\assets\css\prism.css" />
     <Content Include="Template\assets\img\apple-touch-icon.png" />
+    <Content Include="Template\assets\img\bg7.jpg" />
     <Content Include="Template\assets\img\favicon.png" />
     <Content Include="Template\assets\js\core\bootstrap-material-design.min.js" />
     <Content Include="Template\assets\js\core\jquery.min.js" />

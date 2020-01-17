@@ -74,6 +74,9 @@ namespace jspBlog.Migrations
                     DisplayName = "CFMOD"
                 }, "Abc&123!");
             }
+
+            userId = userManager.FindByEmail("moderator@codefoundry.com").Id;
+            userManager.AddToRole(userId, "Moderator");
         }
     }
 }

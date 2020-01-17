@@ -7,7 +7,10 @@
 <div class="container">
     <h1>Opus Blog</h1>
     <p>
-        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-rose" })
+        }
     </p>
 </div>
 <div class="container">
@@ -22,9 +25,12 @@
                 </div>
                 <div class="col-md-4">
                     <div class="float-right">
-                        <a href="@Url.Action("Edit", "Edit", new { id = item.Id, @class = "btn btn-primary" })"><i class="material-icons">edit</i>Edit</a> |
-                        <a href="@Url.Action("Details", "Details", new { slug = item.Slug, @class = "btn btn-primary" })">Read More</a> |
-                        <a href="@Url.Action("Delete", "Delete", new { id = item.Id, @class = "btn btn-primary" })"><i class="material-icons">delete</i>Delete</a>
+                        <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                        {
+                            <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
+                            <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = item.Id })"><i class="material-icons">delete</i></a>
+                        }
                     </div>
                 </div>
             </div>
@@ -46,61 +52,3 @@
         </div>
     }
 </div>
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Created)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Updated)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Slug)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MediaURL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Published)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Created)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Updated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Slug)
-        </td>
-        <td>
-            @Html.Raw(item.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MediaURL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Published)
-        </td>
-        <td>
-            <a href="@Url.Action("Edit", "Edit", new { id = item.Id, @class = "btn btn-primary" })"><i class="material-icons">edit</i></a>
-            <a href="@Url.Action("Details", "Details", new { slug = item.Slug, @class = "btn btn-primary" })">Read More</a>
-            <a href="@Url.Action("Delete", "Delete", new { id = item.Id, @class = "btn btn-primary" })"><i class="material-icons">delete</i></a>
-        </td>
-    </tr>
-}
-
-</table>*@

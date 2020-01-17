@@ -36,6 +36,7 @@ namespace jspBlog.Controllers
             return View(blogPost);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: BlogPosts/Create
         public ActionResult Create()
         {
