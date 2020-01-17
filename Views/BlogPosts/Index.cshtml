@@ -1,0 +1,106 @@
+﻿@model IEnumerable<jspBlog.Models.BlogPost>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <h1>Opus Blog</h1>
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+    </p>
+</div>
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card-title">
+                        <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="float-right">
+                        <a href="@Url.Action("Edit", "Edit", new { id = item.Id, @class = "btn btn-primary" })"><i class="material-icons">edit</i>Edit</a> |
+                        <a href="@Url.Action("Details", "Details", new { slug = item.Slug, @class = "btn btn-primary" })">Read More</a> |
+                        <a href="@Url.Action("Delete", "Delete", new { id = item.Id, @class = "btn btn-primary" })"><i class="material-icons">delete</i>Delete</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card-img">
+                        <img class="img-responsive" src="@item.MediaURL" style="width: 100%"/>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        @Html.Raw(item.Body)
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                @Html.DisplayFor(modelItem =>item.Created)
+            </div>
+        </div>
+    }
+</div>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slug)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Body)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediaURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Published)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slug)
+        </td>
+        <td>
+            @Html.Raw(item.Body)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MediaURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Published)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Edit", new { id = item.Id, @class = "btn btn-primary" })"><i class="material-icons">edit</i></a>
+            <a href="@Url.Action("Details", "Details", new { slug = item.Slug, @class = "btn btn-primary" })">Read More</a>
+            <a href="@Url.Action("Delete", "Delete", new { id = item.Id, @class = "btn btn-primary" })"><i class="material-icons">delete</i></a>
+        </td>
+    </tr>
+}
+
+</table>*@
