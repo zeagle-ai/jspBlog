@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
+.better {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+}
+
 .buff {
     padding-top: 100px;
     padding-bottom: 100px;

@@ -18,36 +18,24 @@
     {
         <div class="card">
             <div class="row">
-                <div class="col-md-8">
-                    <div class="card-title">
-                        <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="float-right">
-                        <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
-                        @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
-                        {
-                            <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
-                            <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = item.Id })"><i class="material-icons">delete</i></a>
-                        }
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
+                <div class="col-sm-8">
                     <div class="card-img">
-                        <img class="img-responsive" src="@item.MediaURL" style="width: 100%"/>
+                        <img class="img-responsive" src="@item.MediaURL" style="width: 100%" />
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        @Html.Raw(item.Body)
-                    </div>
+                <div class="col-sm-4">
+                    <h2 class="better align-text-top">@Html.DisplayFor(modelItem => item.Title)</h2>
+                    @Html.Raw(item.Body)
+                    <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                    {
+                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
+                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = item.Id })"><i class="material-icons">delete</i></a>
+                    }
                 </div>
-            </div>
-            <div class="card-footer">
-                @Html.DisplayFor(modelItem =>item.Created)
+                <div class="card-footer">
+                    @Html.DisplayFor(modelItem =>item.Created)
+                </div>
             </div>
         </div>
     }
