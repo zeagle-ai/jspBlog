@@ -5,71 +5,73 @@
 }
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-offset-4">
-                <h2>@Model.Title</h2>
-            </div>
-            <hr />
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <img src="@Model.MediaURL" class="img-responsive rounded" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <p>@Html.Raw(Model.Body)</p>
-            </div>
-        </div>
-        @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
-        {
+        <div class="card text-center">
             <div class="row">
-                <div class="col-md-2">
-                    <h4>Created: </h4>
-                    @Model.Created
+                <div class="col-12">
+                    <h2>@Model.Title</h2>
                 </div>
-                <div class="col-md-2">
-                    <h4>Slug: </h4>
-                    @Model.Slug
-                </div>
-                <div class="col-md-2">
-                    <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = Model.Id })"><i class="material-icons">edit</i></a>
-                    <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = Model.Id })"><i class="material-icons">delete</i></a>
-                </div>
-                <div class="col-md-6">
-                    @if (Model.Published)
-                    {
-                        <h5>This Blog has been <b>Published</b>.</h5>
-                    } else
-                    {
-                        <h5>This Blog is <b>NOT Published</b>.</h5>
-                    }
-                </div>
+                <hr />
             </div>
-        }
-        else
-        {
             <div class="row">
-                <div class="col-md-3">
-                    <h4>Created: </h4>
-                    @Model.Created
-                </div>
-                <div class="col-md-3">
-                    <h4>Slug: </h4>
-                    @Model.Slug
-                </div>
-                <div class="col-md-6">
-                    @if (Model.Published)
-                    {
-                        <h5>This Blog has been <b>Published</b>.</h5>
-                    }
-                    else
-                    {
-                        <h5>This Blog is <b>NOT Published</b>.</h5>
-                    }
+                <div class="col-12 text-center">
+                    <img src="@Model.MediaURL" class="img-responsive rounded" />
                 </div>
             </div>
-        }
+            <div class="row">
+                <div class="col-12">
+                    <p>@Html.Raw(Model.Body)</p>
+                </div>
+            </div>
+            @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        <h4>Created: </h4>
+                        @Model.Created
+                    </div>
+                    <div class="col-md-2">
+                        <h4>Slug: </h4>
+                        @Model.Slug
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = Model.Id })"><i class="material-icons">edit</i></a>
+                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = Model.Id })"><i class="material-icons">delete</i></a>
+                    </div>
+                    <div class="col-md-6">
+                        @if (Model.Published)
+                        {
+                            <h5>This Blog has been <b>Published</b>.</h5>
+                        } else
+                        {
+                            <h5>This Blog is <b>NOT Published</b>.</h5>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-md-3">
+                        <h4>Created: </h4>
+                        @Model.Created
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Slug: </h4>
+                        @Model.Slug
+                    </div>
+                    <div class="col-md-6">
+                        @if (Model.Published)
+                        {
+                            <h5>This Blog has been <b>Published</b>.</h5>
+                        }
+                        else
+                        {
+                            <h5>This Blog is <b>NOT Published</b>.</h5>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
     </div>
 
 

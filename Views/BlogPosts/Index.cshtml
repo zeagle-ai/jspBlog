@@ -18,14 +18,21 @@
     {
         <div class="card">
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-md-8 col-sm-12 col-xs-12">
                     <div class="card-img">
                         <img class="img-responsive rounded" src="@item.MediaURL" style="width: 100%" />
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-md-4 col-sm-12 col-xs-12">
                     <h2 class="better align-text-top">@Html.DisplayFor(modelItem => item.Title)</h2>
-                    @Html.Raw(item.Body)
+                    @if (item.Body.Length <= 120)
+                    {
+                        <p>@Html.Raw(item.Body)</p>
+                    }
+                    else
+                    {
+                        <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
+                    }
                     <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
                     @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                     {
@@ -34,7 +41,7 @@
                     }
                 </div>
                 <div class="card-footer">
-                    @Html.DisplayFor(modelItem =>item.Created)
+                    @item.Created.ToString("dddd, dd MMMM yyyy")
                 </div>
             </div>
         </div>
