@@ -99,6 +99,12 @@ namespace jspBlog.Controllers
         {
             if (ModelState.IsValid)
             {
+                var oldPost = db.Posts.AsNoTracking().FirstOrDefault(p => p.Id == blogPost.Id);
+
+                blogPost.Created = oldPost.Created;
+                blogPost.Slug = oldPost.Slug;
+                blogPost.Updated = DateTime.Now;
+
                 db.Entry(blogPost).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
