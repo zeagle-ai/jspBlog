@@ -18,28 +18,52 @@
     {
         <div class="card">
             <div class="row">
-                <div class="col-md-8 col-sm-12 col-xs-12">
-                    <div class="card-img">
-                        <img class="img-responsive rounded" src="@item.MediaURL" style="width: 100%" />
+                @if (item.MediaURL != null)
+                {
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="card-img">
+                            <img class="img-responsive rounded" src="@item.MediaURL" style="width: 100%" />
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                    <h2 class="better align-text-top">@Html.DisplayFor(modelItem => item.Title)</h2>
-                    @if (item.Body.Length <= 120)
-                    {
-                        <p>@Html.Raw(item.Body)</p>
-                    }
-                    else
-                    {
-                        <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
-                    }
-                    <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
-                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
-                    {
-                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
-                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = item.Id })"><i class="material-icons">delete</i></a>
-                    }
-                </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <h2 class="better align-text-top">@Html.DisplayFor(modelItem => item.Title)</h2>
+                        @if (item.Body.Length <= 120)
+                        {
+                            <p>@Html.Raw(item.Body)</p>
+                        }
+                        else
+                        {
+                            <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
+                        }
+                        <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                        {
+                            <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
+                            <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = item.Id })"><i class="material-icons">delete</i></a>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h2 class="better align-text-top">@Html.DisplayFor(modelItem => item.Title)</h2>
+                        @if (item.Body.Length <= 120)
+                        {
+                            <p>@Html.Raw(item.Body)</p>
+                        }
+                        else
+                        {
+                            <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
+                        }
+                        <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                        {
+                            <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
+                            <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = item.Id })"><i class="material-icons">delete</i></a>
+                        }
+                    </div>
+                }
+
                 <div class="card-footer">
                     @item.Created.ToString("dddd, dd MMMM yyyy")
                 </div>

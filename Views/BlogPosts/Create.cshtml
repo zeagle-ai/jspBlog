@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "BlogPosts", FormMethod.Post, new{ enctype = "Multipart/form-data"})) 
 {
     @Html.AntiForgeryToken()
     
@@ -30,7 +30,7 @@
 
         <div class="form-group">
             <div class="col-md-12">
-                @Html.EditorFor(model => model.MediaURL, new { htmlAttributes = new { @class = "form-control", placeholder = "Image URL here..." } })
+                <input name="image" type="file" class="form-control" id="fileUpload" />
                 @Html.ValidationMessageFor(model => model.MediaURL, "", new { @class = "text-danger" })
             </div>
         </div>

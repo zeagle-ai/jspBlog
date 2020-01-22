@@ -12,11 +12,14 @@
                 </div>
                 <hr />
             </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <img src="@Model.MediaURL" class="img-responsive rounded" />
+            @if (Model.MediaURL != null)
+            {
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img src="@Model.MediaURL" class="img-responsive rounded" />
+                    </div>
                 </div>
-            </div>
+            }
             <div class="row">
                 <div class="col-12">
                     <p>@Html.Raw(Model.Body)</p>
@@ -41,7 +44,8 @@
                         @if (Model.Published)
                         {
                             <h5>This Blog has been <b>Published</b>.</h5>
-                        } else
+                        }
+                        else
                         {
                             <h5>This Blog is <b>NOT Published</b>.</h5>
                         }
