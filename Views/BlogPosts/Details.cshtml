@@ -109,13 +109,13 @@
                         <hr />
                         <div class="card-footer">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-lg-4">
                                     @item.Created
                                 </div>
-                                <div class="col-4 text-center">
+                                <div class="col-lg-4 text-center">
                                     @item.Author.FirstName  @item.Author.LastName
                                 </div>
-                                <div class="col-4">
+                                <div class="col-lg-4">
                                     @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                                     {
                                         <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "Comments", new { id = item.Id })"><i class="material-icons">edit</i></a>

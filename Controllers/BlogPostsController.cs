@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
+using PagedList;
+using PagedList.Mvc;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -17,9 +19,38 @@ namespace jspBlog.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BlogPosts
-        public ActionResult Index()
+        public ActionResult Index(int? page, string searchStr)
         {
-            return View(db.Posts.ToList());
+            ViewBag.Search = searchStr;
+            var blogList = IndexSearch(searchStr);
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+
+            return View(blogList.ToPagedList(pageNumber, pageSize));
+        }
+
+        //POST: BlogPosts
+        public IQueryable<BlogPost> IndexSearch(string searchStr)
+        {
+            IQueryable<BlogPost> result = null;
+            if (searchStr != null)
+            {
+                result = db.Posts.AsQueryable();
+                result = result.Where(p => p.Title.Contains(searchStr) ||
+                                    p.Body.Contains(searchStr) ||
+                                    p.Comments.Any(c => c.Body.Contains(searchStr) ||
+                                                    c.Author.FirstName.Contains(searchStr) ||
+                                                    c.Author.LastName.Contains(searchStr) ||
+                                                    c.Author.DisplayName.Contains(searchStr) ||
+                                                    c.Author.Email.Contains(searchStr)));
+            } 
+            else
+            {
+                result = db.Posts.AsQueryable();
+            }
+
+            return result.OrderByDescending(p => p.Created);
         }
 
         // GET: BlogPosts/Details/5
