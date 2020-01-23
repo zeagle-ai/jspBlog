@@ -36,6 +36,7 @@
                             <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
                         }
                         <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
+                        <p><b>Comments: </b>(@item.Comments.Count)</p>
                         @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                         {
                             <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
@@ -56,6 +57,7 @@
                             <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
                         }
                         <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
+                        <p><b>Comments: </b>(@item.Comments.Count)</p>
                         @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                         {
                             <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
@@ -64,7 +66,7 @@
                     </div>
                 }
 
-                <div class="card-footer">
+                <div class="card-footer text-right">
                     @item.Created.ToString("dddd, dd MMMM yyyy")
                 </div>
             </div>

@@ -29,9 +29,11 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-12">
-                <input name="image" type="file" class="form-control" id="fileUpload" />
-                @Html.ValidationMessageFor(model => model.MediaURL, "", new { @class = "text-danger" })
+            <div class="col-md-4">
+                Add an Image (jpg, png and gif only)
+            </div>
+            <div class="col-md-8">
+                <input name="image" type="file" class="form-control" id="fileUpload" style="opacity: 1 !important; position: relative !important; z-index: 3;"/>
             </div>
         </div>
 
@@ -47,7 +49,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-rose" />
             </div>
         </div>
         <div>
