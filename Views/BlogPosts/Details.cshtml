@@ -25,6 +25,7 @@
                     <p>@Html.Raw(Model.Body)</p>
                 </div>
             </div>
+            <hr />
             @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
             {
                 <div class="row">
@@ -105,6 +106,7 @@
                         <div class="card-body">
                             @item.Body
                         </div>
+                        <hr />
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-4">
