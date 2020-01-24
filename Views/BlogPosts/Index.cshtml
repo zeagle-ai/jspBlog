@@ -31,7 +31,7 @@
                 {
             <div class="col-md-8 col-sm-12 col-xs-12">
                 <div class="card-img">
-                    <img class="img-responsive rounded" src="@item.MediaURL" style="width: 100%" />
+                    <img class="img-fluid rounded" src="@item.MediaURL" />
                 </div>
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12">
@@ -44,6 +44,8 @@
                         {
                 <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
                         }
+                <br />
+                <br />
                 <div class="row">
                     <div class="col-md-6">
                         <div class="text-center">@item.Created.ToString("dddd, dd MMMM yyyy")</div>

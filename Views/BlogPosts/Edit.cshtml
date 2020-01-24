@@ -34,7 +34,7 @@
         <div class="form-group">
             <h4>Upload an image to attach to your post.</h4>
             <div class="col-md-10">
-                <input name="image" type="file" class="form-control" id="fileUpload" />
+                <input name="image" type="file" class="form-control" id="fileUpload" style="opacity: 1 !important; position: relative !important; z-index: 3;" />
                 @Html.ValidationMessageFor(model => model.MediaURL, "", new { @class = "text-danger" })
             </div>
         </div>
