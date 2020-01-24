@@ -4,15 +4,12 @@
     ViewBag.Title = "Log in";
 }
 
-<!--I know the divs are missing but this is the work around that andrew, mark and I found and I dont want to mess it up for now. If its a problem I can change the layout completely to fix the
-    form in a form issue-->
-
     <div class="container">
         <div class="row buff">
             <div class="col-lg-4 col-md-6 ml-auto mr-auto">
                 <div class="card card-login">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="card-header card-header-primary text-center">
+                    <div class="card-header card-header-rose text-center">
                         <h4 class="card-title">Login</h4>
                         @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
                     </div>
@@ -50,13 +47,15 @@
                                     @Html.LabelFor(m => m.RememberMe)
                                 </div>
                                 <div class="col-6">
-                                    <input type="submit" value="Log In" class="btn btn-primary" />
+                                    <input type="submit" value="Log In" class="btn btn-rose" />
                                 </div>
                             </div>
                         </div>
-
                     }
-
+                </div>
+            </div>
+        </div>
+    </div>
                     @section Scripts {
                         @Scripts.Render("~/bundles/jqueryval")
                     }

@@ -61,7 +61,7 @@ namespace jspBlog
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
                 ClientId = "834553002003-e2g1pbh2ivffcv9k5vvc3ck128hi8vkq.apps.googleusercontent.com",
-                ClientSecret = "AIzaSyAkQTuaETqVEBjGKkWUH0Pdz8lPdMI8Evw"
+                ClientSecret = "Je1JyNozM6GTxEzic4QvFvz7"
             });
         }
     }
