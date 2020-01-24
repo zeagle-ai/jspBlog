@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using System;
+using Owin.Security.Providers.LinkedIn;
 
 namespace jspBlog
 {
@@ -63,6 +64,8 @@ namespace jspBlog
                 ClientId = "834553002003-e2g1pbh2ivffcv9k5vvc3ck128hi8vkq.apps.googleusercontent.com",
                 ClientSecret = "Je1JyNozM6GTxEzic4QvFvz7"
             });
+
+            app.UseLinkedInAuthentication("774yewjp9fvdpp", "T3c89op1mBnvNYcb");
         }
     }
 }

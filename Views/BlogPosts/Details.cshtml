@@ -83,18 +83,18 @@
             <!--Comments-->
             using (Html.BeginForm("Create", "Comments", new { BlogId = Model.Id }, FormMethod.Post))
             {
-    @Html.AntiForgeryToken()
-    @Html.Hidden("BlogId", Model.Id)
-    <div class="form-group rounded">
-        <div class="row">
-            <div class="col-md-10 mx-auto">
-                @Html.TextArea("CommentBody", new { @class = "form-control", placeholder = "Leave comment here...", rows = "2" })
-            </div>
-            <div class="col-md-2 mx-auto">
-                <input type="submit" value="Comment" class="btn btn-rose" />
-            </div>
-        </div>
-    </div>
+                @Html.AntiForgeryToken()
+                @Html.Hidden("BlogId", Model.Id)
+                <div class="form-group rounded">
+                    <div class="row">
+                        <div class="col-md-10 mx-auto">
+                            @Html.TextArea("CommentBody", new { @class = "form-control", placeholder = "Leave comment here...", rows = "2" })
+                        </div>
+                        <div class="col-md-2 mx-auto">
+                            <input type="submit" value="Comment" class="btn btn-rose" />
+                        </div>
+                    </div>
+                </div>
             }
 
             if (Model.Comments != null)

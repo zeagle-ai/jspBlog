@@ -36,7 +36,7 @@ namespace jspBlog.Controllers
             {
                 result = db.Posts.AsQueryable();
                 result = result.Where(p => p.Title.Contains(searchStr) ||
-                                    p.Body.Contains(searchStr) ||
+                                    p.Body.Contains(searchStr) || p.Slug.Contains(searchStr) ||
                                     p.Comments.Any(c => c.Body.Contains(searchStr) ||
                                                     c.Author.FirstName.Contains(searchStr) ||
                                                     c.Author.LastName.Contains(searchStr) ||
