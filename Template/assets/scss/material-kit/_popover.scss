@@ -7,20 +7,18 @@
     color: $popover-color;
 }
 
-
-.popover{
+.popover {
     padding: 0;
     @include shadow-16dp();
 
     &.left,
     &.right,
     &.top,
-    &.bottom{
-        > .arrow{
+    &.bottom {
+        > .arrow {
             border: none;
         }
     }
-
 
     &.bs-popover-top,
     &.bs-popover-auto[x-placement^="top"],
@@ -29,15 +27,14 @@
     &.bs-popover-right,
     &.bs-popover-auto[x-placement^="right"],
     &.bs-popover-left,
-    &.bs-popover-auto[x-placement^="left"]{
-        & .arrow::before{
+    &.bs-popover-auto[x-placement^="left"] {
+        & .arrow::before {
             border: 0;
         }
     }
-
 }
 
-.popover-header{
+.popover-header {
     background-color: $white-color;
     border: none;
     padding: 15px 15px 5px;
@@ -46,7 +43,7 @@
     color: $popover-color;
 }
 
-.popover-body{
+.popover-body {
     padding: 10px 15px 15px;
     line-height: 1.4;
     color: $popover-color;

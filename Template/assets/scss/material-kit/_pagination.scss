@@ -1,6 +1,6 @@
-.pagination{
+.pagination {
     > .page-item > .page-link,
-    > .page-item > span{
+    > .page-item > span {
         border: 0;
         border-radius: 30px !important;
         transition: all .3s;
@@ -17,33 +17,31 @@
         text-align: center;
 
         &:hover,
-        &:focus{
+        &:focus {
             color: $gray-color;
         }
     }
 
     > .page-item.active > a,
-    > .page-item.active > span{
+    > .page-item.active > span {
         color: $gray-color;
 
         &,
         &:focus,
-        &:hover{
+        &:hover {
             background-color: $brand-primary;
             border-color: $brand-primary;
             color: $white-color;
             @include shadow-4dp-color($brand-primary);
         }
-
     }
-
     // Colors
-    &.pagination-info{
+    &.pagination-info {
         > .page-item.active > a,
-        > .page-item.active > span{
+        > .page-item.active > span {
             &,
             &:focus,
-            &:hover{
+            &:hover {
                 background-color: $brand-info;
                 border-color: $brand-info;
                 @include shadow-4dp-color($brand-info);
@@ -51,12 +49,12 @@
         }
     }
 
-    &.pagination-success{
+    &.pagination-success {
         > .page-item.active > a,
-        > .page-item.active > span{
+        > .page-item.active > span {
             &,
             &:focus,
-            &:hover{
+            &:hover {
                 background-color: $brand-success;
                 border-color: $brand-success;
                 @include shadow-4dp-color($brand-success);
@@ -64,12 +62,12 @@
         }
     }
 
-    &.pagination-warning{
+    &.pagination-warning {
         > .page-item.active > a,
-        > .page-item.active > span{
+        > .page-item.active > span {
             &,
             &:focus,
-            &:hover{
+            &:hover {
                 background-color: $brand-warning;
                 border-color: $brand-warning;
                 @include shadow-4dp-color($brand-warning);
@@ -77,12 +75,12 @@
         }
     }
 
-    &.pagination-danger{
+    &.pagination-danger {
         > .page-item.active > a,
-        > .page-item.active > span{
+        > .page-item.active > span {
             &,
             &:focus,
-            &:hover{
+            &:hover {
                 background-color: $brand-danger;
                 border-color: $brand-danger;
                 @include shadow-4dp-color($brand-danger);
@@ -92,7 +90,7 @@
 }
 
 .pagination {
-  .page-item .page-link:focus {
-    box-shadow: none;
-  }
+    .page-item .page-link:focus {
+        box-shadow: none;
+    }
 }

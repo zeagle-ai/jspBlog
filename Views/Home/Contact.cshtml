@@ -2,39 +2,39 @@
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    <div class="container">
-        <h4>
-            Let's build something together. If you've seen something you like, have an idea for a
-            project, or you want to contribute to my blog, send me a message and I'll respond <b><em>ASAP </em></b>!
-        </h4>
-        <hr />
-        @Html.ValidationSummary("", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.FromName)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", placeholder = "your@email.com" })
-                @Html.ValidationMessageFor(m => m.FromEmail)
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="Body">Type your message below</label>
-            <div class="col-md-10">
-                @Html.TextAreaFor(m => m.Body, new { @class = "form-control", rows = "5" })
-                @Html.ValidationMessageFor(m => m.Body)
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-rose" value="Send" />
-            </div>
+@Html.AntiForgeryToken()
+<div class="container">
+    <h4>
+        Let's build something together. If you've seen something you like, have an idea for a
+        project, or you want to contribute to my blog, send me a message and I'll respond <b><em>ASAP </em></b>!
+    </h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FromName)
         </div>
     </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", placeholder = "your@email.com" })
+            @Html.ValidationMessageFor(m => m.FromEmail)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="Body">Type your message below</label>
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Body, new { @class = "form-control", rows = "5" })
+            @Html.ValidationMessageFor(m => m.Body)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-rose" value="Send" />
+        </div>
+    </div>
+</div>
 }

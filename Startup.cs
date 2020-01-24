@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(jspBlog.Startup))]
+
 namespace jspBlog
 {
     public partial class Startup

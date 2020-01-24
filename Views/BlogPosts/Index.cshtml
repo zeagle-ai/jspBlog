@@ -11,102 +11,102 @@
     <p>
         @if (User.IsInRole("Admin"))
         {
-            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-rose" })
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-rose" })
         }
     </p>
 </div>
 <div class="container">
     @using (Html.BeginForm("Index", "BlogPosts",FormMethod.Get, htmlAttributes: new { @class = "form" }))
     {
-        <div class="controls controls-row search-row">
-            <input id="searchStr" name="searchStr" class="input-block-level" type="text" placeholder="Search" />
-            <button id="searchStr" name="searchStr" class="btn btn-rose" type="submit"><i class="material-icons">search</i></button>
-        </div>
+    <div class="controls controls-row search-row">
+        <input id="searchStr" name="searchStr" class="input-block-level" type="text" placeholder="Search" />
+        <button id="searchStr" name="searchStr" class="btn btn-rose" type="submit"><i class="material-icons">search</i></button>
+    </div>
     }
     @foreach (var item in Model)
     {
-        <div class="card">
-            <div class="row">
-                @if (item.MediaURL != null)
+    <div class="card">
+        <div class="row">
+            @if (item.MediaURL != null)
                 {
-                    <div class="col-md-8 col-sm-12 col-xs-12">
-                        <div class="card-img">
-                            <img class="img-responsive rounded" src="@item.MediaURL" style="width: 100%" />
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <h3 class="better align-text-top">@Html.DisplayFor(modelItem => item.Title)</h3>
-                        @if (item.Body.Length <= 120)
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="card-img">
+                    <img class="img-responsive rounded" src="@item.MediaURL" style="width: 100%" />
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <h3 class="better align-text-top">@Html.DisplayFor(modelItem => item.Title)</h3>
+                @if (item.Body.Length <= 120)
                         {
-                            <p>@Html.Raw(item.Body)</p>
+                <p>@Html.Raw(item.Body)</p>
                         }
                         else
                         {
-                            <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
+                <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
                         }
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="text-center">@item.Created.ToString("dddd, dd MMMM yyyy")</div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-center">Comments: <b>(@item.Comments.Count)</b></div>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="text-center">@item.Created.ToString("dddd, dd MMMM yyyy")</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">Comments: <b>(@item.Comments.Count)</b></div>
+                    </div>
+                </div>
 
-                        @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                         {
-                            <div class="row">
-                                <div>
-                                    <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8">
-                                </div>
-                                <div class="col-md-4">
-                                    <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = item.Id })"><i class="material-icons">delete</i></a>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div>
+                        <a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
+                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = item.Id })"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
                         }
                         else
                         {
-                            <div class="row">
-                                <div><a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a></div>
-                            </div>
+                <div class="row">
+                    <div><a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a></div>
+                </div>
                         }
-                    </div>
+            </div>
                 }
                 else
                 {
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <h2 class="better align-text-top">@Html.DisplayFor(modelItem => item.Title)</h2>
-                        @if (item.Body.Length <= 120)
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h2 class="better align-text-top">@Html.DisplayFor(modelItem => item.Title)</h2>
+                @if (item.Body.Length <= 120)
                         {
-                            <p>@Html.Raw(item.Body)</p>
+                <p>@Html.Raw(item.Body)</p>
                         }
                         else
                         {
-                            <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
+                <p>@Html.Raw(item.Body.Substring(0, 121)) ...</p>
                         }
-                        @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                         {
-                            <div class="row">
-                                <div><a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a></div>
-                                <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
-                                <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = item.Id })"><i class="material-icons">delete</i></a>
-                            </div>
+                <div class="row">
+                    <div><a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a></div>
+                    <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = item.Id })"><i class="material-icons">edit</i></a>
+                    <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = item.Id })"><i class="material-icons">delete</i></a>
+                </div>
                         }
                         else
                         {
-                            <div class="row">
-                                <div><a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a></div>
-                            </div>
+                <div class="row">
+                    <div><a class="btn btn-rose btn-round" href="@Url.Action("Details", "BlogPosts", new { slug = item.Slug })">Read More</a></div>
+                </div>
                         }
-                    </div>
-                }
             </div>
+                }
         </div>
+    </div>
     }
     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))
 </div>

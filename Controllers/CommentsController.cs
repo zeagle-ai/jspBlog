@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using jspBlog.Models;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using jspBlog.Models;
-using Microsoft.AspNet.Identity;
 
 namespace jspBlog.Controllers
 {
@@ -47,7 +44,7 @@ namespace jspBlog.Controllers
         }
 
         // POST: Comments/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [Authorize]
         [HttpPost]
@@ -63,7 +60,7 @@ namespace jspBlog.Controllers
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 var slug = db.Posts.Find(BlogId).Slug;
-                return RedirectToAction("Details", "BlogPosts", new { Slug = slug});
+                return RedirectToAction("Details", "BlogPosts", new { Slug = slug });
             }
 
             ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
@@ -88,7 +85,7 @@ namespace jspBlog.Controllers
         }
 
         // POST: Comments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]

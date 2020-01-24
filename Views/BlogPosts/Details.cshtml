@@ -4,97 +4,97 @@
     ViewBag.Title = "Details";
 }
 
-    <div class="container">
-        <div class="card text-center">
-            <div class="row">
-                <div class="col-12">
-                    <h2>@Model.Title</h2>
-                </div>
-                <hr />
-            </div>
-            @if (Model.MediaURL != null)
-            {
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <img src="@Model.MediaURL" class="img-responsive rounded" />
-                    </div>
-                </div>
-            }
-            <div class="row">
-                <div class="col-12">
-                    <p>@Html.Raw(Model.Body)</p>
-                </div>
+<div class="container">
+    <div class="card text-center">
+        <div class="row">
+            <div class="col-12">
+                <h2>@Model.Title</h2>
             </div>
             <hr />
-            @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+        </div>
+        @if (Model.MediaURL != null)
             {
-                <div class="row">
-                    <div class="col-md-2">
-                        <h4>Created: </h4>
-                        @Model.Created
-                    </div>
-                    <div class="col-md-2">
-                        <h4>Slug: </h4>
-                        @Model.Slug
-                    </div>
-                    <div class="col-md-2">
-                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = Model.Id })"><i class="material-icons">edit</i></a>
-                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = Model.Id })"><i class="material-icons">delete</i></a>
-                    </div>
-                    <div class="col-md-6">
-                        @if (Model.Published)
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="@Model.MediaURL" class="img-responsive rounded" />
+            </div>
+        </div>
+            }
+        <div class="row">
+            <div class="col-12">
+                <p>@Html.Raw(Model.Body)</p>
+            </div>
+        </div>
+        <hr />
+        @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+            {
+        <div class="row">
+            <div class="col-md-2">
+                <h4>Created: </h4>
+                @Model.Created
+            </div>
+            <div class="col-md-2">
+                <h4>Slug: </h4>
+                @Model.Slug
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "BlogPosts", new { id = Model.Id })"><i class="material-icons">edit</i></a>
+                <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "BlogPosts", new { id = Model.Id })"><i class="material-icons">delete</i></a>
+            </div>
+            <div class="col-md-6">
+                @if (Model.Published)
                         {
-                            <h5>This Blog has been <b>Published</b>.</h5>
+                <h5>This Blog has been <b>Published</b>.</h5>
                         }
                         else
                         {
-                            <h5>This Blog is <b>NOT Published</b>.</h5>
+                <h5>This Blog is <b>NOT Published</b>.</h5>
                         }
-                    </div>
-                </div>
+            </div>
+        </div>
             }
             else
             {
-                <div class="row">
-                    <div class="col-md-3">
-                        <h4>Created: </h4>
-                        @Model.Created
-                    </div>
-                    <div class="col-md-3">
-                        <h4>Slug: </h4>
-                        @Model.Slug
-                    </div>
-                    <div class="col-md-6">
-                        @if (Model.Published)
+        <div class="row">
+            <div class="col-md-3">
+                <h4>Created: </h4>
+                @Model.Created
+            </div>
+            <div class="col-md-3">
+                <h4>Slug: </h4>
+                @Model.Slug
+            </div>
+            <div class="col-md-6">
+                @if (Model.Published)
                         {
-                            <h5>This Blog has been <b>Published</b>.</h5>
+                <h5>This Blog has been <b>Published</b>.</h5>
                         }
                         else
                         {
-                            <h5>This Blog is <b>NOT Published</b>.</h5>
+                <h5>This Blog is <b>NOT Published</b>.</h5>
                         }
-                    </div>
-                </div>
-            }
+            </div>
         </div>
+            }
+    </div>
 
-        @if (User.Identity.IsAuthenticated)
+    @if (User.Identity.IsAuthenticated)
         {
             <!--Comments-->
             using (Html.BeginForm("Create", "Comments", new { BlogId = Model.Id }, FormMethod.Post))
             {
-                @Html.AntiForgeryToken()
-                @Html.Hidden("BlogId", Model.Id)
-                <div class="form-group rounded">
-                    <div class="row">
-                        <div class="col-md-10 mx-auto">
-                            @Html.TextArea("CommentBody", new { @class = "form-control", placeholder = "Leave comment here...", rows = "2" })
-                        </div>
-                        <div class="col-md-2 mx-auto">
-                            <input type="submit" value="Comment" class="btn btn-rose" />
-                        </div>
-                    </div>
-                </div>
+    @Html.AntiForgeryToken()
+    @Html.Hidden("BlogId", Model.Id)
+    <div class="form-group rounded">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                @Html.TextArea("CommentBody", new { @class = "form-control", placeholder = "Leave comment here...", rows = "2" })
+            </div>
+            <div class="col-md-2 mx-auto">
+                <input type="submit" value="Comment" class="btn btn-rose" />
+            </div>
+        </div>
+    </div>
             }
 
             if (Model.Comments != null)
@@ -102,39 +102,39 @@
 
                 foreach (var item in Model.Comments)
                 {
-                    <div class="card">
-                        <div class="card-body">
-                            @item.Body
-                        </div>
-                        <hr />
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    @item.Created
-                                </div>
-                                <div class="col-lg-4 text-center">
-                                    @item.Author.FirstName  @item.Author.LastName
-                                </div>
-                                <div class="col-lg-4">
-                                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+    <div class="card">
+        <div class="card-body">
+            @item.Body
+        </div>
+        <hr />
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-lg-4">
+                    @item.Created
+                </div>
+                <div class="col-lg-4 text-center">
+                    @item.Author.FirstName  @item.Author.LastName
+                </div>
+                <div class="col-lg-4">
+                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                                     {
-                                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "Comments", new { id = item.Id })"><i class="material-icons">edit</i></a>
-                                        <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "Comments", new { id = item.Id })"><i class="material-icons">delete</i></a>
+                    <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Edit", "Comments", new { id = item.Id })"><i class="material-icons">edit</i></a>
+                    <a class="btn btn-rose btn-fab btn-round" href="@Url.Action("Delete", "Comments", new { id = item.Id })"><i class="material-icons">delete</i></a>
                                     }
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
                 }
             }
             else
             {
-                <h4>Start the Conversation by leaving a comment above!!!</h4>
+    <h4>Start the Conversation by leaving a comment above!!!</h4>
             }
         }
         else
         {
-            <h4 class="text-center">Login or Register to see and leave comments</h4>
-            <p class="text-center">@Html.ActionLink("Login", "Login", "Account", new { returnUrl = Url.Action("Details", "Blogs", new { Slug = Model.Slug }) }, new { @class = "btn btn-rose" })</p>
+    <h4 class="text-center">Login or Register to see and leave comments</h4>
+    <p class="text-center">@Html.ActionLink("Login", "Login", "Account", new { returnUrl = Url.Action("Details", "Blogs", new { Slug = Model.Slug }) }, new { @class = "btn btn-rose" })</p>
         }
-    </div>
+</div>

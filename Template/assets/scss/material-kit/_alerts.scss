@@ -1,13 +1,10 @@
 .alert {
     border: 0;
     border-radius: 0;
-
     padding: 20px 15px;
     line-height: 20px;
-
     //@include shadow-z-2();
-
-    b{
+    b {
         font-weight: $font-weight-bold;
         text-transform: uppercase;
         font-size: $font-size-small;
@@ -25,28 +22,29 @@
         }
     }
 
-    .alert-icon{
+    .alert-icon {
         display: block;
         float: left;
         margin-right: $margin-base;
 
-        i{
+        i {
             margin-top: -7px;
             top: 5px;
             position: relative;
         }
     }
-    .close{
+
+    .close {
         color: $white-color;
         text-shadow: none;
         opacity: .9;
 
-        i{
+        i {
             font-size: 20px;
         }
 
         &:hover,
-        &:focus{
+        &:focus {
             opacity: 1;
         }
     }

@@ -1,19 +1,18 @@
 ﻿@model jspBlog.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-    @{var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes(); }
+@{var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes(); }
 
-        @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+@using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
         {
-            @Html.AntiForgeryToken()
-                <div id="social-line">
-                    <button id="Google" class="btn btn-just-icon btn-link" type="submit" name="provider" value="Google">
-                        <i class="fa fa-google" style="color: #ffffff"></i>
-                    </button>
+@Html.AntiForgeryToken()
+<div id="social-line">
+    <button id="Google" class="btn btn-just-icon btn-link" type="submit" name="provider" value="Google">
+        <i class="fa fa-google" style="color: #ffffff"></i>
+    </button>
 
-                    <button id="twitter" class="btn btn-just-icon btn-link" type="submit" name="provider">
-                        <i class="fa fa-twitter" style="color: #ffffff"></i>
-                    </button>
-
-                </div>
+    <button id="twitter" class="btn btn-just-icon btn-link" type="submit" name="provider">
+        <i class="fa fa-twitter" style="color: #ffffff"></i>
+    </button>
+</div>
         }

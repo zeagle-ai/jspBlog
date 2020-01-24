@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
+﻿using System.Text;
 
 namespace jspBlog.Helpers
 {
@@ -62,6 +58,7 @@ namespace jspBlog.Helpers
             else
                 return sb.ToString();
         }
+
         public static string RemapInternationalCharToAscii(char c)
         {
             string s = c.ToString().ToLowerInvariant();

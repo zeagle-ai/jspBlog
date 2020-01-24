@@ -2,56 +2,52 @@
 
 // Drawer.
 .bmd-layout-drawer {
-  position: absolute;
-  z-index: 5; // over a header and content
-  box-sizing: border-box;
-  display: flex;
-
-  flex-direction: column;
-  flex-wrap: nowrap;
-
-  max-height: 100%;
-  overflow: visible;
-  overflow-y: auto;
-  font-size: .875rem;
-  //color: $bmd-layout-drawer-text-color;
-  //background: $bmd-layout-drawer-bg-color;
-
-  // Transform offscreen.
-  transition: transform;
-  will-change: transform;
-  transform-style: preserve-3d;
-  @include box-shadow($bmd-shadow-2dp);
-  @include material-animation-default();
-
-  > * {
-    flex-shrink: 0;
-  }
-
-  // Placement of common components within the drawer
-  //  You might say this is opinionated - feedback welcome.
-  > header {
+    position: absolute;
+    z-index: 5; // over a header and content
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 1rem;
+    flex-wrap: nowrap;
+    max-height: 100%;
+    overflow: visible;
+    overflow-y: auto;
+    font-size: .875rem;
+    //color: $bmd-layout-drawer-text-color;
+    //background: $bmd-layout-drawer-bg-color;
+    // Transform offscreen.
+    transition: transform;
+    will-change: transform;
+    transform-style: preserve-3d;
+    @include box-shadow($bmd-shadow-2dp);
+    @include material-animation-default();
 
-    .navbar-brand {
-      padding-left: 1.5rem;
-      font-size: 1.25rem;
+    > * {
+        flex-shrink: 0;
     }
-  }
+    // Placement of common components within the drawer
+    //  You might say this is opinionated - feedback welcome.
+    > header {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1rem;
 
-  > .list-group {
-    padding-top: 1rem;
-
-    .list-group-item {
-      padding-right: 2.5rem;
-      padding-left: 2.5rem;
-      font-size: .8125rem;
-      font-weight: 500;
+        .navbar-brand {
+            padding-left: 1.5rem;
+            font-size: 1.25rem;
+        }
     }
-  }
+
+    > .list-group {
+        padding-top: 1rem;
+
+        .list-group-item {
+            padding-right: 2.5rem;
+            padding-left: 2.5rem;
+            font-size: .8125rem;
+            font-weight: 500;
+        }
+    }
 }
 
 //----------------
@@ -88,14 +84,14 @@
 //
 // Drawer open positioning, and style options (push is default, overlay is optional)
 :not(.bmd-drawer-out) {
-  // first eliminate positioning or sizing rules if the drawer is already forced closed
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    @include bmd-drawer-x-in-up($bmd-drawer-x-size, $breakpoint);
-    @include bmd-drawer-y-in-up($bmd-drawer-y-size, $breakpoint);
+    // first eliminate positioning or sizing rules if the drawer is already forced closed
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        @include bmd-drawer-x-in-up($bmd-drawer-x-size, $breakpoint);
+        @include bmd-drawer-y-in-up($bmd-drawer-y-size, $breakpoint);
 
-    @include bmd-drawer-x-overlay-down($breakpoint);
-    @include bmd-drawer-y-overlay-down($breakpoint);
-  }
+        @include bmd-drawer-x-overlay-down($breakpoint);
+        @include bmd-drawer-y-overlay-down($breakpoint);
+    }
 }
 
 ////----

@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using jspBlog.Helpers;
+using jspBlog.Models;
+using PagedList;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
-using PagedList;
-using PagedList.Mvc;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using jspBlog.Helpers;
-using jspBlog.Models;
 
 namespace jspBlog.Controllers
 {
@@ -44,7 +42,7 @@ namespace jspBlog.Controllers
                                                     c.Author.LastName.Contains(searchStr) ||
                                                     c.Author.DisplayName.Contains(searchStr) ||
                                                     c.Author.Email.Contains(searchStr)));
-            } 
+            }
             else
             {
                 result = db.Posts.AsQueryable();
@@ -76,7 +74,7 @@ namespace jspBlog.Controllers
         }
 
         // POST: BlogPosts/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -90,7 +88,7 @@ namespace jspBlog.Controllers
                     ModelState.AddModelError("Title", "Invalid title");
                     return View(blogPost);
                 }
-                if(db.Posts.Any(p => p.Slug == Slug))
+                if (db.Posts.Any(p => p.Slug == Slug))
                 {
                     ModelState.AddModelError("Title", "The title must be unique");
                     return View(blogPost);
@@ -130,7 +128,7 @@ namespace jspBlog.Controllers
         }
 
         // POST: BlogPosts/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]

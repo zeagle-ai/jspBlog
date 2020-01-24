@@ -1,4 +1,4 @@
-.page-header{
+.page-header {
     height: 100vh;
     background-position: center center;
     background-size: cover;
@@ -8,38 +8,36 @@
     display: flex;
     align-items: center;
 
-    .carousel .carousel-indicators{
+    .carousel .carousel-indicators {
         bottom: 60px;
     }
 
-    > .container{
+    > .container {
         color: $white-color;
     }
 
-    .title{
+    .title {
         color: $white-color;
     }
 
-    &.header-small{
+    &.header-small {
         height: 65vh;
         min-height: 65vh;
     }
 
-    .iframe-container{
-        iframe{
+    .iframe-container {
+        iframe {
             width: 100%;
-            box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
-                        0 4px 25px 0px rgba(0, 0, 0, 0.12),
-                        0 8px 10px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
         }
     }
 }
 
-.header-filter{
+.header-filter {
     position: relative;
 
     &:before,
-    &:after{
+    &:after {
         position: absolute;
         z-index: 1;
         width: 100%;
@@ -50,22 +48,23 @@
         content: "";
     }
 
-    &::before{
-    background: rgba(0,0,0,.5);
+    &::before {
+        background: rgba(0,0,0,.5);
     }
 
-    .container{
+    .container {
         z-index: 2;
         position: relative;
     }
 }
+
 .clear-filter::before {
-  background: none;
+    background: none;
 }
 
-.purple-filter:after{
-  background: rgba(101, 47, 142, 0.64);
-  background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-  background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-  background: -webkit-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
+.purple-filter:after {
+    background: rgba(101, 47, 142, 0.64);
+    background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
+    background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
+    background: -webkit-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
 }

@@ -10,16 +10,19 @@
 // #853 start - https://github.com/twbs/bootstrap/pull/18976/files
 // hack
 @mixin pull-left {
-  float: left !important;
-  @if $enable-flex {
-    margin-right: auto;
-  }
+    float: left !important;
+
+    @if $enable-flex {
+        margin-right: auto;
+    }
 }
+
 @mixin pull-right {
-  float: right !important;
-  @if $enable-flex {
-    margin-left: auto;
-  }
+    float: right !important;
+
+    @if $enable-flex {
+        margin-left: auto;
+    }
 }
 // #853 end - https://github.com/twbs/bootstrap/pull/18976/files
 
