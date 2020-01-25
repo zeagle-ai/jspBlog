@@ -90,14 +90,15 @@ namespace jspBlog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin, Moderator")]
-        public ActionResult Edit([Bind(Include = "Id,BlogId,AuthorId,Body,UpdateReason")] Comment comment)
+        public ActionResult Edit([Bind(Include = "Id,BlogId,AuthorId,Body,UpdateReason")] Comment comment, int BlogId)
         {
             if (ModelState.IsValid)
             {
                 comment.Updated = DateTimeOffset.Now;
                 db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                var slug = db.Posts.Find(BlogId).Slug;
+                return RedirectToAction("Details", "BlogPosts", new { Slug = slug });
             }
             ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
             return View(comment);
