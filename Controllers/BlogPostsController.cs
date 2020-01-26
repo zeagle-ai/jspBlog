@@ -106,7 +106,7 @@ namespace jspBlog.Controllers
 
                 db.Posts.Add(blogPost);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "BlogPosts");
             }
 
             return View(blogPost);
@@ -151,7 +151,7 @@ namespace jspBlog.Controllers
 
                 db.Entry(blogPost).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "BlogPosts");
             }
             return View(blogPost);
         }
