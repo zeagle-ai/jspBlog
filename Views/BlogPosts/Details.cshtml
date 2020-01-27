@@ -21,9 +21,11 @@
         </div>
             }
         <div class="row">
-            <div class="col-12">
+            <div class="col-1"></div>
+            <div class="col-10">
                 <p>@Html.Raw(Model.Body)</p>
             </div>
+            <div class="col-1"></div>
         </div>
         <hr />
         @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
